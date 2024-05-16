@@ -5,10 +5,9 @@ function solution(s){
         if (s[i] === "("){
             stack.push("*");
         } 
-        else {
-            if(stack.length > 0){
-                stack.pop();
-            } else return false; 
+        else if(s[i] === ")"){
+            if(stack.length === 0) return false;
+            stack.pop();
         }
     }
 
