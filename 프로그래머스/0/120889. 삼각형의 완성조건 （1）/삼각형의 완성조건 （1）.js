@@ -1,9 +1,10 @@
-function solution(sides) {
-    const max = Math.max(...sides);
-    const leftOver = sides.reduce((acc, cur) => acc + cur) - max;
+
+
+
+function solution(i){
+    let acc = i;
+    if(i === 1) return acc;
+    acc *= i - 1;
     
-    console.log(leftOver, max)
-    
-    return max < leftOver ? 1 : 2;
-    
+    solution(i--);
 }
