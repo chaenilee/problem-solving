@@ -1,8 +1,3 @@
-function solution(x, n) {
-    var arr = [];
-    
-    for(let i = 1; i <= n; i++){
-        arr.push(x * i);
-    }
-    return arr;
+function solution(x, n){
+    return Array(n).fill(x).map((v, i) => v * (i + 1) )
 }
