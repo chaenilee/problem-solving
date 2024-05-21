@@ -6,5 +6,5 @@ function solution(n) {
             answer.push(i);
         }
     }    
-    return answer[0];
+    return Math.min(...answer)
 }
