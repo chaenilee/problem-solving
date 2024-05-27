@@ -20,7 +20,7 @@ function isPalindrome(s) {
 }
 
 let count = 0;
-for (let i = 0; i < +input[0]; i++) {
+for (let i = 0; i < input[0]; i++) {
   count = 0;
   let answer = 0;
   answer = isPalindrome(input[i + 1]);
