@@ -1,30 +1,24 @@
 let fs = require('fs');
 let input = fs.readFileSync('/dev/stdin').toString().split(' ');
 
-const solution = (input) => {
-  let callHanoiCnt = 0;
-  let paths = [];
+let moveCount = 0;
+let answer = "";
 
-  const hanoi = (disk, from, to) => {
-    let via = 6 - (from + to);
+function hanoi(num, start, end){
+  let other = 6 - start - end;
+  moveCount++;
 
-    if (disk === 1) {
-      callHanoiCnt ++;
-      paths.push(`${from} ${to}`);
-      return;
-    }
+  if (num === 1) { 
+    answer += `${start} ${end}\n`;
+    return;
 
-    hanoi(disk - 1, from, via);
-    // cnt를 1로 재호출한 것 very interesting
-    // 그치만 호출보다 직접 path.push 방법이 좋을 것 같다
-    hanoi(1, from, to);
-    hanoi(disk - 1, via, to);
-  };
+  } else {
+    hanoi(num - 1, start, other);
+    answer += `${start} ${end}\n`;
+    hanoi(num - 1, other, end);
+  }
+}
 
-  hanoi(input, 1, 3);
-
-  return `${callHanoiCnt}\n${paths.join("\n")}`;
-};
-
-const answer = solution(Number(input));
-console.log(answer);
+hanoi(Number(input), 1, 3);
+const output = `${moveCount}\n${answer}`
+console.log(output);
