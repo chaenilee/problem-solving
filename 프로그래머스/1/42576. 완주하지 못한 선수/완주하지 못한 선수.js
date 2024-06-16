@@ -7,5 +7,4 @@ function solution(part, comp) {
             return part[i];
         }
     }
-    return part[part.length - 1];
 }
