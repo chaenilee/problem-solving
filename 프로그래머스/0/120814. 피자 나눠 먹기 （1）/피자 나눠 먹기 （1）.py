@@ -1,4 +1,2 @@
-import math
-
 def solution(n):
-    return math.ceil(n/7)
+    return  n // 7 if n % 7 == 0 else n // 7 + 1
