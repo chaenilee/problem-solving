@@ -1,13 +1,12 @@
 str = input()
+result = ''
 
-original_str = list(str)
-upper_str = list(str.upper())
-
-for i in range(len(original_str)):
-    if original_str[i] != upper_str[i]:
-        original_str[i] = original_str[i].upper()
+for item in str:
+    if item.islower():
+        result += item.upper()
     else:
-        original_str[i] = original_str[i].lower()
+        result += item.lower()
+
         
         
-print(''.join(original_str))
+print(result)
